@@ -1,0 +1,17 @@
+[package]
+name = "rust_opentelemetry_honeycomb"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Not needed but can help with debugging when first setting up
+env_logger = "0.10.0"
+# Change feature to rt-tokio for async main
+opentelemetry = { version = "0.17.0", features = ["rt-tokio-current-thread"] }
+# Updating to 0.11 requires protoc installed but 0.10 fortunately does not
+opentelemetry-otlp = { version = "0.10", features = ["http-proto", "reqwest-client"] }
+tracing = "0.1.37"
+tracing-opentelemetry = "0.17.0"
+tracing-subscriber = { version = "0.3.16", features = ["std"] }
+reqwest = "0.11.13"
+tokio = {version = "1.0", features = ["full"]}
